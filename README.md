@@ -7,10 +7,10 @@
 1. Use **Alt+Enter** on `load()` to add exception to method signature
 1. Type `PDFTextStripper p` and select a varname from the suggestions
 1. Hit **Alt+Enter** to import the class, then add `new PdfTextStripper();`
-1. Go to **View -> Tool Windows -> Git**, and drag+drop `Main.java` into the Default Changelist
-1. Right-click `Main.java` and commit using interactive menu
+1. Go to **View -> Tool Windows -> Git**, and drag+drop `PdfReaderExample.java` into the Default Changelist
+1. Right-click `PdfReaderExample.java` and commit using interactive menu
 1. Add a `document.close()` to the end (no leaks here!)
-1. Go to **VCS -> Commit** and review changes to `Main.java`
+1. Go to **VCS -> Commit** and review changes to `PdfReaderExample.java`
 1. Check the Amend box this time, then Commit
 1. Add `String text = pdfTextStripper.getText(document);`
 1. Add following block of code:
@@ -21,7 +21,7 @@
     ```
 1. Hit **Ctrl+Alt+L** to format the lines just added
 1. Run the program to see the results!
-1. Highlight from `Pattern kindPattern` to the end of the `while` block, right-click, **Refactor -> Extract Method** and generate a new package-private method `wordCounter`
+1. Highlight from `Pattern kindPattern` to the end of the `while` block, right-click, **Refactor -> Extract Method** and generate a new package-private method `wordCount`
 1. Right-click the new method name, choose **Refactor -> Change Signature**, and add the parameter `String wordToCount` with default value `kind`
 1. Update the method with the below code:
     ```
@@ -29,13 +29,13 @@
         Matcher wordMatcher=wordPattern.matcher(text);return wordMatcher.results().count();
     ```
 1. Hit **Ctrl+Alt+L** as before, and run.
-1. Hit **Ctrl+Alt+T** and generate a new test for `wordCounter()`.
+1. Hit **Ctrl+Alt+T** and generate a new test for `wordCount()`.
 1. Paste the following code into the test:
     ```
-        String testString="actual actual actual actual actual subject";long actual=Main.wordCounter(testString,"actual");assert(actual==5);
+        String testString="actual actual actual actual actual subject";long actual=PdfReaderExample.wordCount(testString,"actual");assert(actual==5);
     ```
 1. Hit **Ctrl+Alt+L** as usual, and then hit **Ctrl+Alt+O** to clean up your unused imports.
-1. Open up the Git panel again, and click into the Log tab. Right-click on the commit for `init gradle project`, then choose **New Branch**.
+1. Open up the Git panel again, and click into the Log tab. Right-click on the latest commit, then choose **New Branch**.
 1. Commit current changes to the new branch, then checkout `master` again and replace `Main` with the below code:
     ```
         String text = "MyText";
